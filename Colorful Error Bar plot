@@ -1,0 +1,24 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 10)
+y = 2 * x + 2
+y_errors = np.linspace(0.1, 0.5, len(x))
+colors = plt.cm.plasma(np.linspace(0, 1, len(x)))
+
+plt.figure()
+for i in range(len(x)):
+    plt.errorbar(
+        x[i], y[i],
+        yerr=y_errors[i],
+        fmt='*',
+        capsize=5,
+        color=colors[i],
+        ecolor=colors[i],
+        elinewidth=2,
+        markersize=8
+    )
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
+plt.title("Colorful Error Bar Plot")
+plt.show()
